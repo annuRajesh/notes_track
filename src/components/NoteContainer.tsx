@@ -41,7 +41,7 @@ const NoteContainer: React.FC = () => {
      <div className="grid grid-cols-3   justify-center w-full container mx-auto">
       {notes.map((item, index) => (
         <div
-          className=" p-5 flex flex-col gap-6 border rounded-xl h-72 max-h-72 m-1"
+          className=" p-5 flex flex-col gap-6 border rounded-xl h-72 max-h-72 m-1 bg-primary shadow-md"
           key={index}
         >
           <div className="flex justify-between">
@@ -54,21 +54,17 @@ const NoteContainer: React.FC = () => {
                 className="cursor-pointer hover:bg-lightgreen bg-blend-soft-light p-1 rounded-md duration-300 "
                 onClick={() => handleOpen(index)}
               />
-              <img
-                src={ellipsis}
-                alt=""
-                width={25}
-                className="cursor-pointer"
-              />
+              
             </div>
           </div>
           <div className="overflow-y-scroll scrollbar-hide">
-            {item.topics.map((topic) => (
+            {item.topics.map((topic,topicIndex) => (
               <Topic
                 name={topic.name}
                 description={topic.description}
                 status={"pending"}
-                index={index}
+                index={topicIndex}
+                noteIndex={index}
               />
             ))}
             <ReactModal
@@ -78,6 +74,7 @@ const NoteContainer: React.FC = () => {
               overlayClassName="modal-overlay backdrop-blur-md "
             >
               <div className="flex flex-col gap-3 justify-center items-center w-full">
+                <form action="" onSubmit={()=>handleSubmit(index)} className="flex flex-col gap-3">
                 <h1 className="text-2xl font-bold ">Add A Topic To learn</h1>
                 <div className="flex flex-col w-full">
                   <label htmlFor="title" className="m-1">
@@ -100,8 +97,10 @@ const NoteContainer: React.FC = () => {
                 </div>
                 <PrimaryButton
                   title="Submit"
-                  onClick={() => handleSubmit(topicIndex)}
+                  onClick={() => {}}
+                  type="submit"
                 />
+                </form>
               </div>
             </ReactModal>
           </div>

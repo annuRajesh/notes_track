@@ -13,6 +13,9 @@
       display: none;  /* Safari and Chrome */
     }
   }
+  :root{
+    background-color: #f5f5f2
+  }
 @layer components {
   .modal-content {
     @apply flex flex-col justify-center items-center border w-[1000px] p-4 gap-4   bg-white rounded-lg;

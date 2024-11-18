@@ -26,8 +26,15 @@ const initialState:noteState={notes:[]}
             if(state.notes[noteIndex]){
                 state.notes[noteIndex].topics.push(topic)
             }
+        },
+        deleteTopic:(state,action:PayloadAction<{noteIndex:number,topicIndex:number}>)=>{
+            const {noteIndex,topicIndex}=action.payload
+            if(state.notes[noteIndex]){
+                state.notes[noteIndex].topics.splice(topicIndex,1)
+            }
+
         }
     }
 })
-export const {addNote,addTopic}=NoteSlice.actions
+export const {addNote,addTopic,deleteTopic}=NoteSlice.actions
 export default NoteSlice.reducer
