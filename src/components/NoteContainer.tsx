@@ -38,10 +38,10 @@ const NoteContainer: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-wrap  justify-items-center w-full ">
+     <div className="grid grid-cols-3   justify-center w-full container mx-auto">
       {notes.map((item, index) => (
         <div
-          className="w-1/4 p-5 flex flex-col gap-6 border rounded-xl max-h-72 m-1"
+          className=" p-5 flex flex-col gap-6 border rounded-xl h-72 max-h-72 m-1"
           key={index}
         >
           <div className="flex justify-between">
