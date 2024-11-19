@@ -1,0 +1,1 @@
+export const NavbarStyle="py-3 px-20 flex justify-between max-md:flex-col gap-3 max-md:justify-center max-md:items-center"

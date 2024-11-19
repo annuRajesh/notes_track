@@ -9,6 +9,7 @@ import pen from "../assets/icons/pen.svg";
 import EditModal from "./Modals/EditModal";
 import DisplayModal from "./Modals/DisplayModal";
 import ellipsis from '../assets/icons/ellipsis.svg'
+import { subheading2 } from "./style/Headings/Headings";
 interface Props {
   name: string;
   description: string;
@@ -41,7 +42,7 @@ const onClose= ()=>setIsOpen(false)
   return (
     <div className="flex flex-col gap-4 max-lg:gap-3 p-4  m-1 bg-lightgreen/40 bg-blend-soft-light max-md:cursor-pointer" >
       <div className="flex items-center justify-between">
-        <h3 className="text-lg ">{name}</h3>
+        <h3 className={subheading2}>{name}</h3>
         <div className="flex gap-2 max-lg:hidden">
           <img
             src={pen}

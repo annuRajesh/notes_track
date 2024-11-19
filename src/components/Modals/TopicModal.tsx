@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import PrimaryButton from '../PrimaryButton';
+import PrimaryButton from '../Button/PrimaryButton';
 import Input from '../Input';
 import { useDispatch } from 'react-redux';
 import { addTopic } from '../../features/NoteSlice';
+import { label, subheading } from '../style/Headings/Headings';
+import { textareaStyle } from '../style/Input/Inputstyle';
+import { modalLayout } from '../style/Modal/ModalStyle';
 
 interface Props {
   isOpen: boolean;
@@ -33,12 +36,12 @@ const TopicModal: React.FC<Props> = ({ isOpen,handleClose,index }) => {
   isOpen={isOpen}
   onRequestClose={handleClose}
   className="modal-content"
-  overlayClassName="modal-overlay backdrop-blur-md "
+  overlayClassName="modal-overlay"
 >
   <div className="flex flex-col gap-3 justify-center items-center w-full">
-    <h1 className="text-2xl font-bold ">Add Your Topic</h1>
+    <h1 className={subheading}>Add Your Topic</h1>
     <div className="flex flex-col w-full">
-      <label htmlFor="title" className="m-1">
+      <label htmlFor="title" className={label}>
         Title
       </label>
       <Input
@@ -47,15 +50,15 @@ const TopicModal: React.FC<Props> = ({ isOpen,handleClose,index }) => {
         placeholder='Performance Fundamentals'
       />
     </div>
-    <div className="flex flex-col gap-2 w-full">
-      <label htmlFor="">Description</label>
+    <div className={modalLayout}>
+      <label htmlFor="" className={label}>Description</label>
       <textarea
         placeholder="What is web performance?
 How web performance affects user experience
 Measuring performance (using tools like Lighthouse, Web Vitals, etc.)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="p-3 rounded-3xl border w-full scrollbar-hide" minLength={30}
+        className={textareaStyle} minLength={30}
         required
       />
     </div>
