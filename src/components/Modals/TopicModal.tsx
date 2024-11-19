@@ -43,15 +43,18 @@ const TopicModal: React.FC<Props> = ({ isOpen,handleClose,index }) => {
       <Input
         title={title}
         onchange={(e) => setTitle(e.target.value)}
+        placeholder='Performance Fundamentals'
       />
     </div>
     <div className="flex flex-col gap-2 w-full">
       <label htmlFor="">Description</label>
       <textarea
-        placeholder="learn all the datatypes with example"
+        placeholder="What is web performance?
+How web performance affects user experience
+Measuring performance (using tools like Lighthouse, Web Vitals, etc.)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="p-3 rounded-3xl border w-full"
+        className="p-3 rounded-3xl border w-full scrollbar-hide" minLength={30}
         required
       />
     </div>

@@ -7,14 +7,16 @@ import TopicModal from "./Modals/TopicModal";
 
 const NoteContainer: React.FC = () => {
   const notes = useSelector((state: RootState) => state.notes.notes);
-  const [topicIndex, setTopicIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [topicIndex, setTopicIndex] = useState(0);
+
   const handleOpen = (index: number) => {
     setIsOpen(true);
+
     setTopicIndex(index);
   };
   return (
-    <div className="grid grid-cols-3   justify-center w-full container mx-auto">
+    <div className="grid grid-cols-3 max-md:grid-cols-1 justify-center w-full container mx-auto">
       {notes.map((item, index) => (
         <div
           className=" p-5 flex flex-col gap-6 border rounded-xl h-72 max-h-72 m-1 bg-primary shadow-md"
@@ -38,8 +40,8 @@ const NoteContainer: React.FC = () => {
                 name={topic.name}
                 description={topic.description}
                 status={topic.statuse}
-                index={topicIndex}
-                noteIndex={index}
+                noteIndex={topicIndex}
+                topicIndex={index}
               />
             ))}
             <TopicModal

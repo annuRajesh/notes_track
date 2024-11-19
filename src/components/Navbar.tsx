@@ -10,8 +10,8 @@ const Navbar: React.FC = () => {
   };
   const closeModal = () => setIsModalOpen(false);
   return (
-    <div className="py-3 px-20 flex justify-between">
-      <h1 className="text-4xl font-bold">Notes Track</h1>
+    <div className="py-3 px-20 flex justify-between max-md:flex-col gap-3 max-md:justify-center max-md:items-center">
+      <h1 className="text-4xl font-bold max-md:text-3xl tracking-tight max-md:text-center">Organise Your Learning </h1>
       <PrimaryButton title="Add Note" onClick={handleClick} type="button" />
       <TitleModal isModalOpen={isModalOpen} closeModal={closeModal} />
     </div>
