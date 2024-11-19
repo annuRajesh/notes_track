@@ -35,7 +35,7 @@ const TopicModal: React.FC<Props> = ({ isOpen,handleClose,index }) => {
   overlayClassName="modal-overlay backdrop-blur-md "
 >
   <div className="flex flex-col gap-3 justify-center items-center w-full">
-    <h1 className="text-2xl font-bold ">Add A Topic To learn</h1>
+    <h1 className="text-2xl font-bold ">Add Your Topic</h1>
     <div className="flex flex-col w-full">
       <label htmlFor="title" className="m-1">
         Title
