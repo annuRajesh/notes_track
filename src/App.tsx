@@ -1,10 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import NoteContainer from './components/NoteContainer';
-import { useSelector } from 'react-redux';
-import { RootState } from '@reduxjs/toolkit/query';
-
-
 
 const App: React.FC= () => {
   return <div>
