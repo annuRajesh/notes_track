@@ -23,6 +23,17 @@ const DisplayModal: React.FC<Props> = ({ noteIndex,topicIndex,isOpen,onClose }) 
     }
         const [status,setStatus]=useState('pending')
     const topic=useSelector((state:RootState)=>state.notes.notes[noteIndex]?.topics[topicIndex])
+    
+      if (!topic) {
+        return (
+          <ReactModal isOpen={isOpen} onRequestClose={onClose} className="modal-content" overlayClassName="modal-overlay">
+            <h3 className="text-2xl font-bold">Topic Not Found</h3>
+            <p className="text-lg">The topic you are trying to access does not exist.</p>
+            <button onClick={onClose} className="p-2 bg-red-500 text-white rounded">Close</button>
+          </ReactModal>
+        );
+      }
+      
   return <ReactModal isOpen={isOpen} onRequestClose={onClose} className='modal-content' overlayClassName='modal-overlay'>
     <h3 className='text-2xl font-bold'>{topic.name}</h3>
     <p className='text-lg'>{topic.description}</p>

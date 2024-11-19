@@ -42,6 +42,7 @@ console.log(topicIndex)
                 status={topic.statuse}
                 noteIndex={topicIndex}
                 topicIndex={index}
+                key={topicIndex}
               />
             ))}
             <TopicModal
