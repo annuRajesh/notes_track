@@ -23,6 +23,7 @@ const TopicModal: React.FC<Props> = ({ isOpen,handleClose,index }) => {
           })
         );
         console.log(title);
+        
         setTitle("");
         setDescription("");
         handleClose()

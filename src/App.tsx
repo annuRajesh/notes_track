@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import NoteContainer from './components/NoteContainer';
-
+import ReactModal from 'react-modal';
+ReactModal.setAppElement('#root');
 const App: React.FC= () => {
   return <div>
     <header>

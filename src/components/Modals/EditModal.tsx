@@ -21,7 +21,7 @@ const handleSubmit=(noteIndex:number,topicIndex:number,status:string)=>{
 
 
 }
-    const [status,setStatus]=useState('pending')
+    const [status,setStatus]=useState('')
   return <ReactModal isOpen={isOpen} onRequestClose={onClose} className='modal-content' overlayClassName='modal-overlay'>
     <div className="flex flex-col">
         <label htmlFor="" className='text-2xl font-semibold text-center'>Status</label>

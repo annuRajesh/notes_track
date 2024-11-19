@@ -24,7 +24,9 @@ const initialState:noteState={notes:[]}
         addTopic:(state,action:PayloadAction<{noteIndex:number;topic:topic}>)=>{
             const {noteIndex,topic}=action.payload
             if(state.notes[noteIndex]){
+                console.log(noteIndex)
                 state.notes[noteIndex].topics.push(topic)
+                console.log(state.notes[noteIndex].topics)
             }
         },
         deleteTopic:(state,action:PayloadAction<{noteIndex:number,topicIndex:number}>)=>{
@@ -36,8 +38,11 @@ const initialState:noteState={notes:[]}
         },
         editStatus:(state,action:PayloadAction<{noteIndex:number,topicIndex:number,newStatus:string}>)=>{
             const {noteIndex,topicIndex,newStatus}=action.payload
-            if(state.notes[noteIndex]&&state.notes[noteIndex].topics[topicIndex]){
-                state.notes[noteIndex].topics[topicIndex].statuse=newStatus
+            if(state.notes[noteIndex]){
+                if(state.notes[noteIndex].topics[topicIndex]){
+
+                    state.notes[noteIndex].topics[topicIndex].statuse=newStatus
+                }
 
             }
         }
