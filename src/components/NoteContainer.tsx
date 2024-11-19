@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/NoteStore.ts";
 import Topic from "./Topic.tsx";
 import TopicModal from "./Modals/TopicModal.tsx";
-import Delete from "../assets/icons/Delete.svg";
+import trash from "../assets/icons/trash.svg";
 import {
   NoteCardStyle,
   NoteContainerStyle,
@@ -41,7 +41,7 @@ const NoteContainer: React.FC = () => {
                 onClick={() => handleOpen(noteIndex)}
               />
               <img
-                src={Delete}
+                src={trash}
                 alt=""
                 width={25}
                 onClick={() => handleDelete(noteIndex)}
