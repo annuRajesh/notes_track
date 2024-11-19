@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import Input from '../Input';
 import PrimaryButton from '../PrimaryButton';
 import { useDispatch } from 'react-redux';
 import { editStatus } from '../../features/NoteSlice';

@@ -9,7 +9,7 @@ const NoteContainer: React.FC = () => {
   const notes = useSelector((state: RootState) => state.notes.notes);
   const [isOpen, setIsOpen] = useState(false);
   const [topicIndex, setTopicIndex] = useState(0);
-
+console.log(topicIndex)
   const handleOpen = (index: number) => {
     setIsOpen(true);
 
