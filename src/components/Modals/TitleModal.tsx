@@ -23,7 +23,7 @@ const TitleModal: React.FC<Props> = ({ isModalOpen,closeModal }) => {
       }
 
   return <ReactModal isOpen={isModalOpen} onRequestClose={closeModal} className='modal-content' overlayClassName='modal-overlay'>
-  <form action="" onSubmit={()=>addContainer(title)} className='flex flex-col gap-4 '>
+  <form action="" onSubmit={()=>addContainer(title)} className='flex flex-col gap-4 justify-center items-center'>
   <h3 className="text-3xl font-bold max-md:text-2xl max-md:tracking-tight max-md:text-center">Your Target Area</h3>
   <div className="flex flex-col">
   <label htmlFor="" className='max-md:text-center'>Title</label>
