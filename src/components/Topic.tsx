@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import arrowhead_down from "../assets/icons/arrowhead_down.svg";
 import arrowhead_up from "../assets/icons/arrowhead_up.svg";
-import Delete from "../assets/icons/delete.svg";
+import Delete from "../assets/icons/trash.svg";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { deleteTopic } from "../features/NoteSlice";
