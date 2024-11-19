@@ -1,4 +1,4 @@
-# Organise Your Learning 
+# Organize Your Learning 
 
 It is a simple project to organise the learning,You can add each area and divide your learning and add descriptions.
 ## Technologies Used
