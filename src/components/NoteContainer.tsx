@@ -62,7 +62,7 @@ const NoteContainer: React.FC = () => {
               <Topic
                 name={topic.name}
                 description={topic.description}
-                status={"pending"}
+                status={topic.statuse}
                 index={topicIndex}
                 noteIndex={index}
               />

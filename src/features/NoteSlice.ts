@@ -33,8 +33,16 @@ const initialState:noteState={notes:[]}
                 state.notes[noteIndex].topics.splice(topicIndex,1)
             }
 
+        },
+        editStatus:(state,action:PayloadAction<{noteIndex:number,topicIndex:number,newStatus:string}>)=>{
+            const {noteIndex,topicIndex,newStatus}=action.payload
+            if(state.notes[noteIndex]&&state.notes[noteIndex].topics[topicIndex]){
+                state.notes[noteIndex].topics[topicIndex].statuse=newStatus
+
+            }
         }
+
     }
 })
-export const {addNote,addTopic,deleteTopic}=NoteSlice.actions
+export const {addNote,addTopic,deleteTopic,editStatus}=NoteSlice.actions
 export default NoteSlice.reducer
