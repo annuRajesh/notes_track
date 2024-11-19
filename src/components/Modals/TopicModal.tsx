@@ -1,44 +1,67 @@
-// import React from 'react';
-// import ReactModal from 'react-modal';
+import React, { useState } from 'react';
+import ReactModal from 'react-modal';
+import PrimaryButton from '../PrimaryButton';
+import Input from '../Input';
+import { useDispatch } from 'react-redux';
+import { addTopic } from '../../features/NoteSlice';
 
-// interface Props {
-//   title: string;
-// }
+interface Props {
+  isOpen: boolean;
+  handleClose:()=>void
+  index:number
+}
 
-// const TopicModal: React.FC<Props> = ({ title }) => {
-//   return  <ReactModal
-//   isOpen={isOpen}
-//   onRequestClose={() => setIsOpen(!isOpen)}
-//   className="modal-content"
-//   overlayClassName="modal-overlay backdrop-blur-md "
-// >
-//   <div className="flex flex-col gap-3 justify-center items-center w-full">
-//     <h1 className="text-2xl font-bold ">Add A Topic To learn</h1>
-//     <div className="flex flex-col w-full">
-//       <label htmlFor="title" className="m-1">
-//         Title
-//       </label>
-//       <Input
-//         title={title}
-//         onchange={(e) => setTitle(e.target.value)}
-//       />
-//     </div>
-//     <div className="flex flex-col gap-2 w-full">
-//       <label htmlFor="">Description</label>
-//       <textarea
-//         placeholder="learn all the datatypes with example"
-//         value={description}
-//         onChange={(e) => setDescription(e.target.value)}
-//         className="p-3 rounded-3xl border w-full"
-//         required
-//       />
-//     </div>
-//     <PrimaryButton
-//       title="Submit"
-//       onClick={() => handleSubmit(topicIndex)}
-//     />
-//   </div>
-// </ReactModal>;
-// };
+const TopicModal: React.FC<Props> = ({ isOpen,handleClose,index }) => {
+    const dispatch=useDispatch()
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const handleSubmit = (index: number) => {
+        dispatch(
+          addTopic({
+            noteIndex: index,
+            topic: { name: title, description: description, statuse: "pending" },
+          })
+        );
+        console.log(title);
+        setTitle("");
+        setDescription("");
+        handleClose()
+      };
 
-// export default TopicModal;
+  return  <ReactModal
+  isOpen={isOpen}
+  onRequestClose={handleClose}
+  className="modal-content"
+  overlayClassName="modal-overlay backdrop-blur-md "
+>
+  <div className="flex flex-col gap-3 justify-center items-center w-full">
+    <h1 className="text-2xl font-bold ">Add A Topic To learn</h1>
+    <div className="flex flex-col w-full">
+      <label htmlFor="title" className="m-1">
+        Title
+      </label>
+      <Input
+        title={title}
+        onchange={(e) => setTitle(e.target.value)}
+      />
+    </div>
+    <div className="flex flex-col gap-2 w-full">
+      <label htmlFor="">Description</label>
+      <textarea
+        placeholder="learn all the datatypes with example"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        className="p-3 rounded-3xl border w-full"
+        required
+      />
+    </div>
+    <PrimaryButton
+      title="Submit"
+      type='button'
+      onClick={()=>handleSubmit(index)}
+    />
+  </div>
+</ReactModal>;
+};
+
+export default TopicModal;
