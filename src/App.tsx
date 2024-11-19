@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar';
-import NoteContainer from './components/NoteContaineStyler';
+import NoteContainer from './components/NoteContainer';
 import ReactModal from 'react-modal';
 ReactModal.setAppElement('#root');
 const App: React.FC= () => {
