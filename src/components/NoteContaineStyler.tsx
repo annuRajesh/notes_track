@@ -1,27 +1,35 @@
 import React, { useState } from "react";
 import plus from "../assets/icons/plus.svg";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/NoteStore";
-import Topic from "./Topic";
-import TopicModal from "./Modals/TopicModal";
-
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/NoteStore.ts";
+import Topic from "./Topic.tsx";
+import TopicModal from "./Modals/TopicModal.tsx";
+import Delete from "../assets/icons/Delete.svg";
+import {
+  NoteCardStyle,
+  NoteContainerStyle,
+  NoteIconStyle,
+} from "./style/Note/NoteStyle.tsx";
+import { deleteNote } from "../features/NoteSlice.ts";
 const NoteContainer: React.FC = () => {
   const notes = useSelector((state: RootState) => state.notes.notes);
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedNoteIndex, setSelectedNoteIndex] = useState<number | null>(null);
+  const [selectedNoteIndex, setSelectedNoteIndex] = useState<number | null>(
+    null
+  );
 
   const handleOpen = (index: number) => {
     setSelectedNoteIndex(index);
     setIsOpen(true);
   };
-
+  const handleDelete = (index: number) => {
+    dispatch(deleteNote({ noteIndex: index }));
+  };
   return (
-    <div className="grid grid-cols-3 max-md:grid-cols-1 justify-center w-full container mx-auto">
+    <div className={NoteContainerStyle}>
       {notes.map((item, noteIndex) => (
-        <div
-          className="p-5 flex flex-col gap-6 border rounded-xl h-72 max-h-72 m-1 bg-primary shadow-md"
-          key={noteIndex}
-        >
+        <div className={NoteCardStyle} key={noteIndex}>
           <div className="flex justify-between">
             <h3 className="text-xl font-semibold">{item.title}</h3>
             <div className="flex gap-2 justify-center items-center">
@@ -29,8 +37,15 @@ const NoteContainer: React.FC = () => {
                 src={plus}
                 alt="Add Topic"
                 width={28}
-                className="cursor-pointer hover:bg-lightgreen bg-blend-soft-light p-1 rounded-md duration-300"
+                className={NoteIconStyle}
                 onClick={() => handleOpen(noteIndex)}
+              />
+              <img
+                src={Delete}
+                alt=""
+                width={25}
+                onClick={() => handleDelete(noteIndex)}
+                className={NoteIconStyle}
               />
             </div>
           </div>
@@ -48,8 +63,6 @@ const NoteContainer: React.FC = () => {
           </div>
         </div>
       ))}
-
-      {/* Render the TopicModal outside the loop */}
       {isOpen && selectedNoteIndex !== null && (
         <TopicModal
           isOpen={isOpen}

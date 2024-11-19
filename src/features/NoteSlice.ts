@@ -45,9 +45,15 @@ const initialState:noteState={notes:[]}
                 }
 
             }
+        },
+        deleteNote:(state,action:PayloadAction<{noteIndex:number}>)=>{
+            const {noteIndex}=action.payload
+            if(state.notes[noteIndex]){
+                state.notes.splice(noteIndex,1)
+            }
         }
 
     }
 })
-export const {addNote,addTopic,deleteTopic,editStatus}=NoteSlice.actions
+export const {addNote,addTopic,deleteTopic,editStatus,deleteNote}=NoteSlice.actions
 export default NoteSlice.reducer

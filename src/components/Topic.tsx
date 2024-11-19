@@ -10,6 +10,7 @@ import EditModal from "./Modals/EditModal";
 import DisplayModal from "./Modals/DisplayModal";
 import ellipsis from '../assets/icons/ellipsis.svg'
 import { subheading2 } from "./style/Headings/Headings";
+import { TopicContainerStyle } from "./style/Topic/TopicStyle";
 interface Props {
   name: string;
   description: string;
@@ -17,7 +18,6 @@ interface Props {
   noteIndex: number;
   topicIndex: number;
 }
-
 const Topic: React.FC<Props> = ({
   name,
   description,
@@ -26,7 +26,6 @@ const Topic: React.FC<Props> = ({
   topicIndex,
 }) => {
   const [edit, setEdit] = useState(false);
-
   const dispatch = useDispatch();
   const handleDelete = (note: number, topic: number) => {
     dispatch(deleteTopic({ noteIndex: note, topicIndex: topic }));
@@ -40,7 +39,7 @@ const Topic: React.FC<Props> = ({
 const [isOpen,setIsOpen]=useState(false)
 const onClose= ()=>setIsOpen(false)
   return (
-    <div className="flex flex-col gap-4 max-lg:gap-3 p-4  m-1 bg-lightgreen/40 bg-blend-soft-light max-md:cursor-pointer" >
+    <div className={TopicContainerStyle}>
       <div className="flex items-center justify-between">
         <h3 className={subheading2}>{name}</h3>
         <div className="flex gap-2 max-lg:hidden">
@@ -61,7 +60,7 @@ const onClose= ()=>setIsOpen(false)
           <img
             src={isShown ? arrowhead_up : arrowhead_down}
             alt=""
-            className="cursor-pointer duration-300 transform transition-transform "
+            className="cursor-pointer  "
             key={noteIndex}
             onClick={() => {
               setIsShown(!isShown);

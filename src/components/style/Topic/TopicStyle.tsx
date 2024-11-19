@@ -1,0 +1,1 @@
+export const TopicContainerStyle="flex flex-col gap-4 max-lg:gap-3 p-4  m-1 bg-lightgreen/40 bg-blend-soft-light max-md:cursor-pointer"
