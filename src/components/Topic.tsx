@@ -46,14 +46,14 @@ const onClose= ()=>setIsOpen(false)
           <img
             src={pen}
             alt=""
-            width={25}
+            width={20}
             onClick={() => setEdit(true)}
             className="cursor-pointer"
           />
           <img
             src={Delete}
             alt=""
-            width={25}
+            width={20}
             onClick={() => handleDelete(noteIndex, topicIndex)}
             className=" cursor-pointer"
           />
@@ -65,11 +65,11 @@ const onClose= ()=>setIsOpen(false)
             onClick={() => {
               setIsShown(!isShown);
             }}
-            width={25}
+            width={23}
           />
         </div>
         <div className="hidden max-lg:block ">
-          <img src={ellipsis} alt="" width={25} onClick={()=>setIsOpen(true)}/>
+          <img src={ellipsis} alt="" width={23} onClick={()=>setIsOpen(true)}/>
         </div>
       </div>
       <motion.p

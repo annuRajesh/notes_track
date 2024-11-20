@@ -5,18 +5,21 @@ interface Props {
   title: string;
   onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  defaultValue?:string
 }
 
-const Input: React.FC<Props> = ({ title, onchange, placeholder }) => {
+const Input: React.FC<Props> = ({ title, onchange, placeholder,}) => {
   return (
     <input
       id="title"
       type="text"
       placeholder={placeholder}
-      value={title}
+      defaultValue={title}
       onChange={onchange}
       className={InputStyle}
       required
+     
+      
     />
   );
 };

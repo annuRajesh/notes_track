@@ -36,14 +36,14 @@ const NoteContainer: React.FC = () => {
               <img
                 src={plus}
                 alt="Add Topic"
-                width={28}
+                width={30}
                 className={NoteIconStyle}
                 onClick={() => handleOpen(noteIndex)}
               />
               <img
                 src={trash}
                 alt=""
-                width={25}
+                width={28}
                 onClick={() => handleDelete(noteIndex)}
                 className={NoteIconStyle}
               />
