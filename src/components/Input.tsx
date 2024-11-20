@@ -4,7 +4,7 @@ import { InputStyle } from "./style/Input/Inputstyle";
 interface Props {
   title: string;
   onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder: string;
+  placeholder?: string;
 }
 
 const Input: React.FC<Props> = ({ title, onchange, placeholder }) => {

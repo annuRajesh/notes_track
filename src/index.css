@@ -18,7 +18,7 @@
   }
 @layer components {
   .modal-content {
-    @apply flex flex-col justify-center items-center border w-[1000px] p-4 gap-4 max-md:w-[300px]    bg-white rounded-lg max-md:m-2;
+    @apply flex flex-col justify-center items-center border w-[1000px] p-4 gap-6  max-md:w-[300px]    bg-white rounded-lg max-md:m-2;
   }
 
   .modal-overlay {

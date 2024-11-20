@@ -81,7 +81,7 @@ const onClose= ()=>setIsOpen(false)
         {description}
       </motion.p>
       <p
-        className={`text-xsm tracking-tight ${statusColor[status]} font-semibold`}
+        className={`text-xsm tracking-tight ${statusColor[status]} font-semibold max-md:text-[12px]`}
       >
         {status}
       </p>

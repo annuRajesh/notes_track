@@ -41,7 +41,7 @@ const DisplayModal: React.FC<Props> = ({ noteIndex,topicIndex,isOpen,onClose }) 
   return <ReactModal isOpen={isOpen} onRequestClose={onClose} className='modal-content' overlayClassName='modal-overlay'>
     <div className={modalLayout}>
     <h3 className={subheading}>{topic.name}</h3>
-    <p className='text-lg'>{topic.description}</p>
+    <p className='text-lg text-center'>{topic.description}</p>
     <label htmlFor="" className={label}>Status</label>
         <select name="" id="" value={status} onChange={(e)=>setStatus(e.target.value)} className={InputStyle}>
             <option value="pending">pending</option>
